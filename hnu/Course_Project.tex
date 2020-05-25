@@ -1,0 +1,187 @@
+% HFUT_Courge_Project
+\documentclass[UTF8]{ctexart}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{listings}
+\usepackage{appendix}
+\usepackage{bm, amsmath,amsfonts}
+\usepackage{multirow}
+\usepackage[a4paper,left=3.4cm,right=3cm,top=1.65cm,bottom=2.54cm]{geometry}
+\renewcommand{\contentsname}{\zihao{3} 目\quad 录}
+\renewcommand{\abstractname}{\zihao{3} 摘\quad 要}
+%页眉页脚设置
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\rhead{\kaishu~课程设计~}
+
+%目录页设置
+\titlecontents{section}[0em]{\zihao{4}\bf }{\thecontentslabel\ }{}
+{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+\titlecontents{subsection}[2em]{\vspace{0.1\baselineskip}\zihao{-4}}{\thecontentslabel\ }{}
+{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+\titlecontents{subsubsection}[4em]{\vspace{0.1\baselineskip}\zihao{-4}}{\thecontentslabel\ }{}
+{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+%代码设置
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+	numbers=left,  
+	frame=tb,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	framerule=1pt,
+	rulecolor=\color{gray!35},
+	backgroundcolor=\color{gray!5},
+	basicstyle={\ttfamily},
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3,
+}
+%------------------------------------------------------------------------
+%正文部分
+\begin{document}
+	\begin{titlepage}
+		\centering
+		\vspace*{1.75cm}
+		\quad\includegraphics[width=7cm,height=7cm]{hnu.png}\\
+		\vspace*{1cm}
+		{\fontsize{45pt}\baselineskip 抽\qquad\ 样\qquad\ 技\qquad\ 术}
+		 \vskip 3cm
+		 \fontsize{19pt}\baselineskip
+		 \makebox[30mm]{设计题目}
+		 \underline{\makebox[75mm][c]{           }}\\%在这里修改成自己的题目
+		 \vskip 0.9cm
+		 \makebox[30mm]{学生姓名}
+		 \underline{\makebox[75mm][c]{         }}\\
+		 \vskip 0.9cm
+		 \makebox[30mm]{学\qquad\qquad 号}
+		 \underline{\makebox[75mm][c]{ \LARGE  }}\\
+		 \vskip 0.9cm
+		 \makebox[30mm]{专业班级}
+		 \underline{\makebox[75mm][c]{         }}\\
+		 \vskip 0.9cm
+		  \makebox[30mm]{指导教师}
+		 \underline{\makebox[75mm][c]{         }}\\
+		 \vskip 2cm
+		 \LARGE \textbf{\number \year }~年~\textbf{\number\month}~月~\textbf{\number\day}~日		 
+	\end{titlepage}
+
+ \begin{abstract}
+ 	\pagestyle{plain}
+ 	\thispagestyle{empty}
+ 	\zihao{-4}
+ 	
+ 	\vskip 2cm
+ 	
+	\par 1111111111111111111
+	
+	\vskip 2cm
+	
+	\par 1111111111111
+	
+	\par  2222222222222222222222222222222
+	
+	\vskip 2cm
+	
+	
+	\textbf{关键字}：\quad 关键字 \quad 关键字 \quad 关键字 \quad 关键字
+	\newpage
+\end{abstract}
+
+\tableofcontents\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+\section{1}
+\vskip 1cm
+
+11111111111111111111111111111111111111
+111111111111111111111111111111111111111111
+
+\vskip 2cm
+22222222222222
+\vskip 1cm
+33333333333333
+
+\vskip 2cm
+\section{2}
+
+1111111111111111111111111111111111111111111111111111111111111111111111111111
+1111111111111111111111111111111111111111111111111111111111111111111111111111
+
+\subsection{2.1}
+
+
+1111111111111111111111111111111111111111111111111111111111111111111111111111
+
+
+\vskip 1cm
+
+\subsection{2.2}
+
+
+1111111111111111111111111111111111111111111111111111111111111111111111111111
+1111111111111111111111111111111111111111111111111111111111111111111111111111
+
+31111111111111111111111111111111111111111111111111111111111111111111111111111
+
+\vskip 3cm
+\section{3}
+
+
+\subsection{1}
+\subsection{2}
+\subsection{3}
+\subsection{4}
+
+
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}[c]{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.3\textwidth]{test.jpg}
+		\caption{测试1}
+	\end{minipage}%
+	\begin{minipage}[c]{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.3\textwidth]{test.jpg}
+		\caption{测试2}
+	\end{minipage}
+\end{figure}
+
+
+
+\section{附录}
+
+
+\newpage
+
+\begin{appendices}
+\section{程序代码}
+\begin{lstlisting}[language=R,escapeinside=``]
+
+for(i in 1:20) {
+pH=0.99  
+p0=0.5^i 
+p1=0  
+Bayes_P=p0*pH/(p0*pH+p1*(1-pH))
+cat("i =",i,", p(D|H0) =",p0,", Bayes p(H0|D) =",Bayes_P,"\n")
+}
+
+\end{lstlisting}
+\end{appendices}
+	
+
+\end{document}
