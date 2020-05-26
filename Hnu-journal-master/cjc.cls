@@ -670,7 +670,7 @@
 
 \fancypagestyle{plain}{%
   \fancyhf{}%
-  \fancyhead[CE]{\class@hf@font 质量管理统计学}%
+  \fancyhead[CE]{\class@hf@font 课程名称(在cjc.cls里查找修改)}%
 }
 \pagestyle{plain}
 
@@ -700,7 +700,7 @@
   \fancyhf{}%
   \fancyhead[C]{%
     \class@hf@font
-    质量管理统计学实验报告%
+    湖南大学实验报告%
   }%
 }
 
