@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}latex说明,安装}{1}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}宏包}{2}{subsection.1.1}% 
+\contentsline {paragraph}{所谓宏包，就是一系列控制序列的合集}{2}{paragraph*.2}% 
+\contentsline {subparagraph}{所谓宏包，}{2}{subparagraph*.3}% 
+\contentsline {subsubsection}{\numberline {1.1.1}字体}{2}{subsubsection.1.1.1}% 
+\contentsline {section}{\numberline {2}数学公式}{2}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}括号}{3}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}矩阵}{4}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}公式组}{4}{subsection.2.3}% 
+\contentsline {paragraph}{分段函数}{4}{paragraph*.4}% 
+\contentsline {subsection}{\numberline {2.4}辅助工具}{4}{subsection.2.4}% 
+\contentsline {section}{\numberline {3}图片表格}{5}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}图片}{5}{subsection.3.1}% 
+\contentsline {paragraph}{浮动体}{5}{paragraph*.5}% 
+\contentsline {subsection}{\numberline {3.2}表格}{5}{subsection.3.2}% 
+\contentsline {section}{\numberline {4}其他说明}{5}{section.4}% 

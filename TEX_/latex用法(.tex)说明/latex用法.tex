@@ -1,0 +1,205 @@
+\documentclass[UTF8]{ctexart}
+
+% 英文的开头可以 \documentclass{article}
+
+% 套了一个学术论文模板后大致了解latex的笔记
+
+% 导言区    通常在导言区设置页面大小、页眉页脚样式、章节标题样式等等。
+%数学公式插入
+\usepackage{amsmath}
+%链接插入
+\usepackage{url}
+\usepackage[colorlinks,linkcolor=red]{hyperref}
+%图片插入
+\usepackage{graphicx}
+%页边距 比如我希望，将纸张的长度设置为 20cm、宽度设置为 15cm、左边距 1cm、右边距 2cm、上边距 3cm、下边距 4cm，可以在导言区加上这样几行：
+%\usepackage{geometry}
+%\geometry{papersize={20cm,15cm}}
+%\geometry{left=1cm,right=2cm,top=3cm,bottom=4cm}
+%页眉页脚 比如我希望，在页眉左边写上我的名字，中间写上今天的日期，右边写上我的电话；页脚的正中写上页码；页眉和正文之间有一道宽为 0.4pt 的横线分割，可以在导言区加上如下几行：
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\author}
+\chead{\date}
+\rhead{152xxxxxxxx}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headwidth}{\textwidth}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\title{latex简单使用}
+\author{魏卓}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\tableofcontents  % 插入目录
+	% 控制序列 maketitle，这个控制序列能将在导言区中定义的标题、作者、日期按照预定的格式展现出来。
+	
+	\href{https://liam.page/2014/09/08/latex-introduction/}{本文参考}
+	\section{latex说明,安装}
+	LaTeX —— 这个优雅，但有着自己高傲，却绝不复杂甚至神秘的东西
+	
+	Tex安装 下载Texlive（发行的Tex，另一个是MiKTex） + Texstudio 随便哪篇博客都有，设置上没啥大问题 
+	
+	Latex套模板、必须在模板环境（即模板的路径里）里运行。
+	
+	TeXworks 是 TeX Live 自带的编辑器，而 TeX Live 是 TeX User Group 出品的跨平台发行版，各个操作系统都可以使用
+	
+	% 所有控制序列用 \开头
+	
+	这里的控制序列是 documentclass，它后面紧跟着的 {article} 代表这个控制序列有一个必要的参数，该参数的值为 article。这个控制序列的作用，是调用名为 article 的文档类。
+	
+	% 注释
+	
+	今年的净利润为 20\%，比去年高。 %加上\ 保证“%” 不被注释
+	
+	\subsection{宏包}
+	\paragraph{所谓宏包，就是一系列控制序列的合集}
+	\subparagraph{所谓宏包，}就是一系列控制序列的合集。这些控制序列太常用，以至于人们会觉得每次将他们写在导言区太过繁琐，于是将他们打包放在同一个文件中，成为所谓的宏包（台湾方面称之为「巨集套件」）。
+	%   \usepackage{} 可以用来调用宏包
+	CTeX 宏集一次性解决了这些问题。CTeX 宏集的优势在于，它能适配于多种编译方式；在内部处理好了中文和中文版式的支持，隐藏了这些细节；并且，提供了不少中文用户需要的功能接口。
+	
+	
+	\subsubsection{字体}
+	按下% <win> + R；  
+	键入cmd, 回车。
+	在系统命令行中输入如下命令：
+	
+	% fc-list :lang=zh-cn > C:\font_zh-cn.txt
+	用vsc打开
+	其中的每一行，都代表着一个可用的字体。其形式如下：
+	
+	<字体文件路径>: <字体标示名1>, <字体表示名2>:Style=<字体类型>
+	我们可以看到图中的倒数第四行
+	
+	% C:/WINDOWS/fonts/simsun.ttc: 宋体,SimSun:style=Regular
+	% 出现了之前文档里调用的字体SimSun，此处表明该字体有两个表示名：宋体和SimSun，我们在\setCJKmainfont{·}中填入任意一个都有同样的效果。
+	
+	\section{数学公式}
+	% 需要导言部分用 \usepackage{amsmath}
+	
+	% 在行文中，使用 $ ... $ 可以插入行内公式，使用 \[ ... \] 可以插入行间公式，如果需要对行间公式进行编号，则可以使用 equation 环境：
+	
+	%\begin{equation}
+	%    ...
+	%\end{equation}
+	Einstein 's $E=mc^2$.
+	
+	\[ E=mc^2. \]
+	
+	\begin{equation}
+	E=mc^2.
+	\end{equation}
+	
+	\[ z = r\cdot e^{2\pi i}. \]
+	根式用 $\sqrt{x} $来表示，分式用 $\frac{a}{b} $来表示（第一个参数为分子，第二个为分母）。
+	
+	一些小的运算符，可以在数学模式下直接输入；另一些需要用控制序列生成，如
+	
+	\[ \pm\; \times\; \div\; \cdot\; \cap\; \cup\; \geq\; \leq\; \neq\; \approx \; \equiv \]
+	
+	连加、连乘、极限、积分等大型运算符分别用 % \sum, \prod, \lim, \int 
+	生成。他们的上下标在行内公式中被压缩，以适应行高。我们可以用 %\limits 和 \nolimits
+	来强制显式地指定是否压缩这些上下标。例如：
+	
+	$ \sum_{i=1}^n i\quad \prod_{i=1}^n  \sum\limits _{i=1}^n i\quad \prod\limits _{i=1}^n $
+	\[ \lim_{x\to0}x^2 \quad \int_a^b x^2 dx \]
+	\[ \lim\nolimits _{x\to0}x^2\quad \int\nolimits_a^b x^2 dx \]
+	
+	多重积分可以使用$ \iint, \iiint, \iiiint, \idotsint $等命令输入。
+	
+	\[ \iint\quad \iiint\quad \iiiint\quad \idotsint \]
+	
+	\subsection{括号}
+	各种括号用 (), [], \{\},% \langle\rangle
+	等命令表示；注意花括号通常用来输入命令和环境的参数，所以在数学公式中它们前面要加 % \。
+	
+	更复杂的参见 \href{https://liam.page/2018/11/09/the-bigger-than-bigger-delimiter-in-LaTeX/}{复杂公式}
+	顺便写一下邮箱引用	\href{mailto: 1327905168@qq.com}{邮箱}
+	
+	\[ \Biggl(\biggl(\Bigl(\bigl((x)\bigr)\Bigr)\biggr)\Biggr) \]
+	
+	\[ \Biggl[\biggl[\Bigl[\bigl[[x]\bigr]\Bigr]\biggr]\Biggr] \]
+	
+	\[ \Biggl \{\biggl \{\Bigl \{\bigl \{\{x\}\bigr \}\Bigr \}\biggr \}\Biggr\} \]
+	
+	\[ \Biggl\langle\biggl\langle\Bigl\langle\bigl\langle\langle x
+	\rangle\bigr\rangle\Bigr\rangle\biggr\rangle\Biggr\rangle \]
+	
+	\[ \Biggl\lvert\biggl\lvert\Bigl\lvert\bigl\lvert\lvert x
+	\rvert\bigr\rvert\Bigr\rvert\biggr\rvert\Biggr\rvert \]
+	
+	\[ \Biggl\lVert\biggl\lVert\Bigl\lVert\bigl\lVert\lVert x
+	\rVert\bigr\rVert\Bigr\rVert\biggr\rVert\Biggr\rVert \]
+	
+	省略号用
+	% \dots 和 \cdots 的纵向位置不同，前者一般用于有下标的序列。
+	
+	\[ x_1,x_2,\dots ,x_n\quad 1,2,\cdots ,n\quad \vdots\quad \ddots \]
+	
+	\subsection{矩阵}
+	凭网上公式生成写吧
+	
+	\subsection{公式组}
+	
+	\begin{gather}
+	a = b+c+d \\
+	x = y+z
+	\end{gather}
+	
+	\begin{align}
+	a &= b+c+d \\
+	x &= y+z
+	\end{align}
+	
+	
+	请注意，不要使用 eqnarray 环境
+	
+	\paragraph{分段函数}
+	\[ y= \begin{cases}
+	-x,\quad x\leq 0 \\
+	x,\quad x>0
+	\end{cases} \]
+	
+	\subsection{辅助工具}
+	
+	\href{https://mathpix.com/ }{能够通过热键呼出截屏，而后将截屏中的公式转换成 LaTeX 数学公式的代码}
+	
+	\href{http://detexify.kirelabs.org/classify.html}{允许用户用鼠标在输入区绘制单个数学符号的样式，系统会根据样式返回对应的 LaTeX 代码}
+	
+	
+	\section{图片表格}
+	\subsection{图片}
+	在 LaTeX 中插入图片，有很多种方式。最好用的应当属利用 graphicx 宏包提供的 % \includegraphics 
+	命令。比如你在你的 TeX 源文件同目录下，有名为 a.jpg 的图片，你可以用这样的方式将它插入到输出文档中：
+	%\includegraphics[width = .8\textwidth]{a.jpg}   假设同目录下有a.jpg时
+	
+	\paragraph{浮动体}
+	插图和表格通常需要占据大块空间，所以在文字处理软件中我们经常需要调整他们的位置。figure 和 table 环境可以自动完成这样的任务；这种自动调整位置的环境称作浮动体(float)。我们以 figure 为例。
+	
+	%\begin{figure}[htbp]
+	%\centering
+	%\includegraphics{a.jpg}
+	%\caption{有图有真相}
+	%\label{fig:myphoto}
+	%\end{figure}
+	
+	htbp 选项用来指定插图的理想位置，这几个字母分别代表 here, top, bottom, float page，也就是就这里、页顶、页尾、浮动页（专门放浮动体的单独页面或分栏）。
+	% \centering 用来使插图居中；\caption 命令设置插图标题，LaTeX 会自动给浮动体的标题加上编号。注意 \label 应该放在标题命令之后。
+	
+	\subsection{表格}
+	使用辅助工具,百度搜latex表格
+	
+	
+	\section{其他说明}
+	LaTeX 将一个换行当做是一个简单的空格来处理，如果需要换行另起一段，则需要用两个换行（一个空行）来实现。
+	数模模板 
+	\href{https://liam.page/2016/01/27/how-to-use-mcmthesis/}{如何使用美赛模板 mcmthesis}
+	
+	
+\end{document}
